@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
-    ProductController
+    ProductController,
+    UserController
 };
 
 /*
@@ -75,9 +76,10 @@ Route::get('/teste', function(){
     return redirect()->action([ProductController::class, 'edit'], ['id' => 14]);
 })->name('teste'); */
 
-Route::get('/', function(){
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/login', function(){
     return back()->withInput();
 });
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/user/{id}/edit', [UserController::class, 'edit']);
