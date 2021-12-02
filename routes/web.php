@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
     ProductController,
-    UserController
+    ProductStoreController,
+    UserController,
+    UserStoreController
 };
 
 /*
@@ -81,7 +83,7 @@ Route::post('/login', function(){
     return back()->withInput();
 });
 
-Route::resource('/user', UserController::class)->names([
+/* Route::resource('/user', UserController::class)->names([
     'create' => 'create.user'
 ])->only(['index','create','store']);
 // Route::get('/user', [UserController::class, 'index']);
@@ -91,4 +93,10 @@ Route::resource('/user', UserController::class)->names([
 
 Route::get('/teste', function (){
     return redirect()->route('create.user');
-});
+}); */
+
+Route::get('/user/create', [UserController::class, 'create']);
+Route::post('/user', UserStoreController::class);
+
+Route::resource('/product', ProductController::class)->except('store');
+Route::post('/product', ProductStoreController::class);
