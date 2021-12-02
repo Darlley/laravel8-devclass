@@ -80,6 +80,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/login', function(){
     return back()->withInput();
 });
-Route::get('/user', [UserController::class, 'index']);
-Route::get('/user/{id}', [UserController::class, 'show']);
-Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+
+Route::resource('/user', UserController::class)->names([
+    'create' => 'create.user'
+])->only(['index','create','store']);
+// Route::get('/user', [UserController::class, 'index']);
+// Route::get('/user/create', [UserController::class, 'create']);
+// Route::get('/user/{id}', [UserController::class, 'show']);
+// Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+
+Route::get('/teste', function (){
+    return redirect()->route('create.user');
+});
