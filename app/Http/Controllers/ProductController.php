@@ -23,7 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return redirect('/product');
     }
 
     /**
@@ -32,10 +32,10 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    
+    /*
+        STORE
+    */
 
     /**
      * Display the specified resource.
@@ -45,7 +45,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        dd('Product: '.$id);
+        //
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserStoreController extends Controller
+class testeStoreController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -13,11 +13,11 @@ class UserStoreController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    private function teste(){
-        dd('teste');
-    }
+    private function store(){
+        dd('store');
+    } 
     public function __invoke(Request $request)
     {
-        $this->teste();
+        $this->store();
     }
 }
